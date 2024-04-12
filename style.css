@@ -1,0 +1,58 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Open Sans", sans-serif;
+    color: rgb(231, 231, 231);
+    text-align: center;
+}
+
+html, body, main {
+    height: 100%;
+}
+
+#large-percentage {
+    font-size: 90px;
+    font-weight: bold;
+}
+
+.place-over {
+    display: grid;
+    place-items: center;
+}
+
+.place-over > * {
+    grid-area: 1 / 1 / 1 / 1;
+}
+
+img {
+    width: 30px;
+    height: 30px;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    background-color: #272727;
+    background-image: url("https://geode-sdk.org/layer0.svg");
+    background-size: 100vw auto;
+    background-position: 0px 100%;
+    background-repeat: no-repeat;
+}
+
+.light-bg {
+    border-radius: 5px;
+    background-color: #4747477e;
+    padding: 10px;
+}
+
+.lighter-bg {
+    border-radius: 5px;
+    background-color: #8d8d8d57;
+    padding: 10px;
+}
