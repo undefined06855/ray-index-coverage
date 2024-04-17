@@ -4,12 +4,16 @@
 /** @returns Promise<> */
 function getRayModStats() {
     return new Promise(resolve => {
-        fetch("https://api.github.com/repos/geode-sdk/mods/contents/mods-v2")
+        fetch("https://api.github.com/repos/geode-sdk/mods/contents/mods-v2", {cache: "reload"})
         .then(response => response.json())
         .then(_modsArray => {
             /** @type Array<Object> */
             let modsArray = _modsArray
             let totalMods = modsArray.length
+            if (totalMods == undefined) {
+                resolve("err")
+                return
+            }
             let eryMods = modsArray.filter(mod => mod.name.includes("raydeeux")).length
             console.log("Total mods: %s", totalMods)
             console.log("Mods containing \"raydeeux\": %s", eryMods)

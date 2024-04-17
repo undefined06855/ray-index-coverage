@@ -9,10 +9,6 @@
     text-align: center;
 }
 
-.invis-if-no-content:has(#large-percentage:empty) {
-    display: none;
-}
-
 html, body, main {
     height: 100%;
 }
@@ -35,23 +31,26 @@ html, body, main {
     text-decoration: none;
 }
 
-img {
+.pfp {
     width: 26px;
     height: 26px;
     vertical-align: middle;
 }
 
 main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 20px;
     background-color: #272727;
     background-image: url("https://geode-sdk.org/layer0.svg");
     background-size: 100vw auto;
     background-position: 0px 100%;
     background-repeat: no-repeat;
+}
+
+main, #hide-when-not-loaded {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
 }
 
 footer {

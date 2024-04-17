@@ -11,15 +11,18 @@
     </head>
     <body>
         <main>
-            <h1>How Many Mods Has <img src="https://avatars.githubusercontent.com/u/51521765" />RayDeeUx Put On The Index?</h1>
-            <div class="place-over invis-if-no-content">
-                <canvas width="270" height="270"></canvas>
-                <div id="large-percentage"></div>
+            <h1>How Many Mods Has <img src="https://avatars.githubusercontent.com/u/51521765" class="pfp" />RayDeeUx Put On The Index?</h1>
+            <div id="hide-when-not-loaded" style="display: none">
+                <div class="place-over">
+                    <canvas width="270" height="270"></canvas>
+                    <div id="large-percentage"></div>
+                </div>
+                <div class="light-bg">
+                    <div id="detailed-percentage"></div>
+                    <p id="detailed-explanation"></p>
+                </div>
             </div>
-            <div class="light-bg">
-                <div id="detailed-percentage"></div>
-                <p>Loading (drumroll please)...</p>
-            </div>
+            <span id="loader" class="light-bg">Loading (drumroll please)...</span>
         </main>
 
         <footer>See the source <a href="https://github.com/undefined06855/ray-index-coverage" target="_blank">here</a></footer>

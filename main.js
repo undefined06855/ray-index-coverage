@@ -1,11 +1,11 @@
 let canvas = document.querySelector("canvas")
   , ctx = canvas.getContext("2d")
   /** @type HTMLDivElement */
-  , percentEl = document.querySelector("#large-percentage")
+  , largePercentage = document.querySelector("#large-percentage")
   /** @type HTMLDivElement */
-  , percentageSpecificEl = document.querySelector("#detailed-percentage")
+  , detailedPercentage = document.querySelector("#detailed-percentage")
   /** @type HTMLParagraphElement */
-  , detailedExplanation = document.querySelector("p")
+  , detailedExplanation = document.querySelector("#detailed-explanation")
 
   // stuff for pi chart animation
   , animStage = 0
@@ -16,8 +16,15 @@ let canvas = document.querySelector("canvas")
   // the iife is literally just for the await later on
 !(async () => {
     let rayModStats = await getRayModStats()
-    percentEl.innerText = rayModStats.percentage.toFixed(3) + "%"
-    percentageSpecificEl.innerHTML = `(Or more specifically, <a href="${wikiHighlightLink}" class="no-deco" target="_blank"><strong>${rayModStats.percentage}%</strong>*</a>)`
+    if (rayModStats == "err") {
+        // aww fuck
+        document.querySelector("#loader").innerText = "There was an error when fetching from Github (have you hit the rate limit?)"
+        return
+    }
+    document.querySelector("#loader").style.display = "none"
+    document.querySelector("#hide-when-not-loaded").style.display = ""
+    largePercentage.innerText = rayModStats.percentage.toFixed(3) + "%"
+    detailedPercentage.innerHTML = `(Or more specifically, <a href="${wikiHighlightLink}" class="no-deco" target="_blank"><strong>${rayModStats.percentage}%</strong>*</a>)`
     detailedExplanation.innerHTML = `That's <strong>${rayModStats.eryMods}</strong> out of the <strong>${rayModStats.totalMods}</strong> mods on the index!`
 
     // me when i can't use CCEaseOut on web:
