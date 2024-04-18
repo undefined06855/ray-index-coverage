@@ -27,10 +27,6 @@ html, body, main {
     grid-area: 1 / 1 / 1 / 1;
 }
 
-.no-deco {
-    text-decoration: none;
-}
-
 .pfp, .octocat {
     width: 26px;
     height: 26px;
