@@ -31,11 +31,12 @@ html, body, main {
     text-decoration: none;
 }
 
-.pfp {
+.pfp, .octocat {
     width: 26px;
     height: 26px;
     vertical-align: middle;
 }
+
 
 main {
     background-color: #272727;
@@ -45,12 +46,12 @@ main {
     background-repeat: no-repeat;
 }
 
-main, #hide-when-not-loaded {
+.flex-col {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    gap: 20px;
+    gap: 40px;
 }
 
 footer {

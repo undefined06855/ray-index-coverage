@@ -11,8 +11,6 @@ let canvas = document.querySelector("canvas")
   , animStage = 0
   , animLength = 25000
 
-  , wikiHighlightLink = "https://en.wikipedia.org/wiki/Floating-point_arithmetic#Representable_numbers,_conversion_and_rounding:~:text=The%20number%20of%20digits%20(or%20bits)%20of%20precision%20also%20limits%20the%20set%20of%20rational%20numbers%20that%20can%20be%20represented%20exactly.%20For%20example%2C%20the%20decimal%20number%20123456789%20cannot%20be%20exactly%20represented%20if%20only%20eight%20decimal%20digits%20of%20precision%20are%20available"
-
   // the iife is literally just for the await later on
 !(async () => {
     let rayModStats = await getRayModStats()
@@ -24,7 +22,7 @@ let canvas = document.querySelector("canvas")
     document.querySelector("#loader").style.display = "none"
     document.querySelector("#hide-when-not-loaded").style.display = ""
     largePercentage.innerText = rayModStats.percentage.toFixed(3) + "%"
-    detailedPercentage.innerHTML = `(Or more specifically, <a href="${wikiHighlightLink}" class="no-deco" target="_blank"><strong>${rayModStats.percentage}%</strong>*</a>)`
+    detailedPercentage.innerHTML = `(Or more specifically, <strong>${rayModStats.percentage.toFixed(30)}%</strong>)`
     detailedExplanation.innerHTML = `That's <strong>${rayModStats.eryMods}</strong> out of the <strong>${rayModStats.totalMods}</strong> mods on the index!`
 
     // me when i can't use CCEaseOut on web:
