@@ -10,14 +10,21 @@ function getRayModStats() {
             /** @type Array<Object> */
             let modsArray = _modsArray
             let totalMods = modsArray.length
+
             if (totalMods == undefined) {
                 resolve("err")
                 return
             }
-            let eryMods = modsArray.filter(mod => mod.name.includes("raydeeux")).length
+
+            let username = new URL(window.location.href).searchParams.get("user") || "raydeeux"
+            username.toLowerCase()
+
+            let eryMods = modsArray.filter(mod => mod.name.includes(username)).length
+
             console.log("Total mods: %s", totalMods)
-            console.log("Mods containing \"raydeeux\": %s", eryMods)
+            console.log("Mods containing \"%s\": %s", username, eryMods)
             console.log("Raydeeux currently holds %s% of the index", (eryMods / totalMods) * 100)
+
             resolve({
                 percentage: (eryMods / totalMods) * 100,
                 drawablePercentage: eryMods / totalMods,

@@ -13,12 +13,21 @@ let canvas = document.querySelector("canvas")
 
   // the iife is literally just for the await later on
 !(async () => {
+    let username = new URL(window.location.href).searchParams.get("user")
+    if (username != null) {
+        // replace stuff for custom username
+        document.querySelector("img").remove()
+        document.querySelector("h1").innerText = `How Many Mods Has ${username.toLowerCase()} Put On The Index?`
+    }
+
     let rayModStats = await getRayModStats()
+
     if (rayModStats == "err") {
         // aww fuck
         document.querySelector("#loader").innerText = "There was an error when fetching from Github (have you hit the rate limit?)"
         return
     }
+
     document.querySelector("#loader").style.display = "none"
     document.querySelector("#hide-when-not-loaded").style.display = ""
     largePercentage.innerText = rayModStats.percentage.toFixed(3) + "%"
